@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Montessori Day Care & School in Blue Island, IL & Crest Hill, IL{% endblock %}
+{% block description %}T.L.C. Learning Center is a full-day early care and education program committed to providing excellence to the Chicagoland communities. Utilizing the Montessori approach, we focus on creating a warm, secure and loving environment for children ages 6 weeks to 12 years old. Contact us about enrollment today!{% endblock %}
+{% block canonical %}www.tlclearningcenter.com/{% endblock %}
+{% block content %}
+
+ <!--Carousel Wrapper-->
+    <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+
+      <!--Indicators-->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+        <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+      </ol>
+      <!--/.Indicators-->
+
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+
+        <!--First slide-->
+        <div class="carousel-item active">
+          <div class="view" style="background-image: url({% static 'images/teacher-with-kids.jpg' %}); background-position: center; background-repeat: no-repeat; background-size: cover;">
+
+            <!-- Mask & flexbox options-->
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+
+            </div>
+            <!-- Mask & flexbox options-->
+
+          </div>
+        </div>
+        <!--/First slide-->
+
+        <!--Second slide-->
+        <div class="carousel-item">
+          <div class="view" style="background-image: url({% static 'images/counting-bloicks.jpg' %}); background-position: center; background-repeat: no-repeat; background-size: cover;">
+
+            <!-- Mask & flexbox options-->
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            </div>
+            <!-- Mask & flexbox options-->
+
+          </div>
+        </div>
+        <!--/Second slide-->
+
+        <!--Third slide-->
+        <div class="carousel-item">
+          <div class="view" style="background-image: url({% static 'images/kindergarten-class.jpeg' %}); background-position: center; background-repeat: no-repeat; background-size: cover;">
+
+            <!-- Mask & flexbox options-->
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            </div>
+            <!-- Mask & flexbox options-->
+
+          </div>
+        </div>
+        <!--/Third slide-->
+
+      </div>
+      <!--/.Slides-->
+
+      <!--Controls-->
+      <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      <!--/.Controls-->
+
+    </div>
+    <!--/.Carousel Wrapper-->
+<main>
+<div class="container">
+<div class="text-center m-4">
+  <h1 class="h1-responsive">Welcome to TLC Learning Center!
+                </h1>
+</div>
+
+<section class="wow fadeIn" style="margin-top: 3rem">
+      <div class="divider-new"><h1 class="h1-responsive text-center mx-4">Locations</h1></div>
+                   <!--Grid row-->
+{% if locations %}
+
+                <div class="row mb-4 wow fadeIn">
+   {% for location in locations %}
+                    <!--Grid column-->
+                    <div class="col-md-6 mb-4">
+
+                        <!--Card-->
+                        <div class="card">
+
+                            <!--Card image-->
+                            <div class="view overlay" style="height: auto">
+                                <img src="{{ location.photo_main.url }}" style="max-height: 350px;" class="card-img-top" alt="{{ location.location_name }}">
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+
+                            <!--Card content-->
+                            <div class="card-body text-center">
+                                <!--Title-->
+                                <h4 class="card-title">{{ location.location_name }}</h4>
+                                <!--Text-->
+                                <p class="card-text">{{ location.location_content|truncatewords:45 }}</p>
+                                <a href="{{ location.location_url }}" class="btn btn-red btn-md">View location
+                                    <i class="fa fa-chevron-right ml-2"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!--/.Card-->
+
+                    </div>
+                    <!--Grid column-->
+                    {% endfor %}
+                      {% else %}
+    <div class="col-md-12 text-center">
+    <p>Location info is being updated currently, please check back later.</p>
+    </div>
+
+                </div>
+                <!--Grid row-->
+  {% endif %}
+
+</section>
+
+<!-- Photo Gallery -->
+ <section class="wow fadeIn">
+ <div class="container">
+<div class="divider-new p-3"><h2 class="h2-responsive text-center mx-4">Gallery</h2></div>
+<div class="container da-gallery" id="gallery">
+{% if locations %}
+  <div class="card-columns">
+      {% for location  in locations %}
+    <div class="card"><a data-toggle="lightbox" data-gallery="da-gallery"><img class="img-fluid" src="{{ location.photo_main.url }}" alt="{{ location.location_name }}"/></a></div>
+    <div class="card"><a data-toggle="lightbox" data-gallery="da-gallery"><img class="img-fluid" src="{{ location.photo_1.url }}" alt="location.location_name"/></a></div>
+    <div class="card"><a data-toggle="lightbox" data-gallery="da-gallery"><img class="img-fluid" src="{{ location.photo_2.url }}" alt="location.location_name"/></a></div>
+    <div class="card"><a data-toggle="lightbox" data-gallery="da-gallery"><img class="img-fluid" src="{{ location.photo_3.url }}" alt="location.location_name"/></a></div>
+    <div class="card"><a data-toggle="lightbox" data-gallery="da-gallery"><img class="img-fluid" src="{{ location.photo_4.url }}" alt="location.location_name"/></a></div>
+    <div class="card"><a data-toggle="lightbox" data-gallery="da-gallery"><img class="img-fluid" src="{{ location.photo_5.url }}" alt="location.location_name"/></a></div>
+    <div class="card"><a data-toggle="lightbox" data-gallery="da-gallery"><img class="img-fluid" src="{{ location.photo_6.url }}" alt="location.location_name"/></a></div>
+    <div class="card"><a data-toggle="lightbox" data-gallery="da-gallery"><img class="img-fluid" src="{{ location.photo_7.url }}" alt="location.location_name"/></a></div>
+    <div class="card"><a data-toggle="lightbox" data-gallery="da-gallery"><img class="img-fluid" src="{{ location.photo_8.url }}" alt="location.location_name"/></a></div>
+    <div class="card"><a data-toggle="lightbox" data-gallery="da-gallery"><img class="img-fluid" src="{{ location.photo_9.url }}" alt="location.location_name"/></a></div>
+    <div class="card"><a data-toggle="lightbox" data-gallery="da-gallery"><img class="img-fluid" src="{{ location.photo_10.url }}" alt="location.location_name"/></a></div>
+    <div class="card"><a  data-toggle="lightbox" data-gallery="da-gallery"><img class="img-fluid" src="{{ location.photo_11.url }}" alt="location.location_name"/></a></div>
+    <div class="card"><a data-toggle="lightbox" data-gallery="da-gallery"><img class="img-fluid" src="{{ location.photo_12.url }}" alt="location.location_name"/></a></div>
+      {% endfor %}
+      {% else %}
+    <div class="col-md-12 text-center">
+    <p>No photos currently available, please check back later.</p>
+    </div>
+{% endif %}
+  </div>
+</div>
+ <!-- Photo Gallery -->
+
+
+</div>
+</main>
+
+
+{% endblock %}

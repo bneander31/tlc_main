@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load static %}
 
-</body>
-</html>
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light scrolling-navbar">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="{% url 'pages:index' %}">
+        <img src="{% static 'images/logo-new-logo.png' %}" alt="TLC Learning Center logo" style="width: 70px;">
+      </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+<ul class="navbar-nav mr-auto">
+	<!-- Left -->
+<li class="nav-item">
+		<a class="nav-link" id="red" href="{% url 'pages:index' %}">Home
+            </a>
+          </li>
+</ul>
+<!-- Right -->
+        <ul class="navbar-nav nav-flex-icons">
+			 <li class="nav-item">
+            <a href="https://www.facebook.com/TLCLearningCenterSchools/" class="nav-link" target="new">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="mailto:contactus@tlclearning.com" class="nav-link border border-light rounded">
+              <i class="fa fa-envelope mr-2"></i>Contact Us
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
